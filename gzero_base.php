@@ -20,18 +20,25 @@ class GzeroBase
     
     public function showTemplate($file, $sort)
     {
-        $file = file_get_contents("./" . $file);
-        for ($i = 0; $i <= $sort; $i++) {
-            $file = strstr($file, "<!-- START_TEMPLATE -->"); //第一次出現<!-- START_TEMPLATE -->之後剩餘的字串
-        }
-        $lengh = strpos($file, "<!-- END_TEMPLATE -->");//找到傳回字串「第一次」出現的位置
-        return substr($file, 0, $lengh);
+        $file = file_get_contents($file);
+        $file = explode("<!-- START_TEMPLATE -->",$file); //第一次出現<!-- START_TEMPLATE -->之後剩餘的字串
+        $lengh = strpos($file[$sort+1], "<!-- END_TEMPLATE -->");//找到傳回字串「第一次」出現的位置
+        return substr($file[$sort+1],0,$lengh);
     }
     
     public function siteHeader($file)
     {
-        
-        return strpos($file,"<!--VGO SITE_MAIN -->",0);
+        $file = substr($file,0,strpos($file,"<!--VGO SITE_MAIN -->"));
+        $file = str_replace("<!--VGO SITE_HEADER -->",file_get_contents("./testHeader.html"),$file);
+        return $file;
+    }
+    
+    public function siteFooter($file)
+    {
+        $lengh = strlen($file);
+        $file = substr($file,strpos($file,"<!--VGO SITE_MAIN -->"),$lengh);
+        $file = str_replace("<!--VGO SITE_FOOTER -->",file_get_contents("./testFooter.html"),$file);
+        return $file;
     }
 }
 

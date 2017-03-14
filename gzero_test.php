@@ -11,7 +11,7 @@ class GzeroTest extends GzeroBase
     {
         switch ($type) {
             case "manager":
-                $main = $this->showTemplate("./test.html",$type);
+                $main = $this->showTemplate("./testMain.html",1);
                 break;
             default:
                 break;
