@@ -1,8 +1,11 @@
 <?php
+header("Cache-Control: no-store, no-cache");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 include("../testmysql.php");
 include("./gzero_test.php");
 $gzero = new GzeroTest();
-$layout = $gzero->readKeyHtml("index_key.html");
+$layout = $gzero->readKeyHtml("index_key2.html");
 ///將不同html結合
 $f = file_get_contents("./test.html");
 //替換多個special tag

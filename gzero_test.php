@@ -1,10 +1,14 @@
 <?php
-include ("./gzero_base.php");
+include("./gzero_base.php");
+
 class GzeroTest extends GzeroBase
 {
-    public function gzeroSqlQuery($queryStr)
+    public function displayAddEventDialog($date)
     {
-        return $db->exec($queryStr);
+        $paraData = array(
+            '<!-- START_TIME -->'=> $date
+        );
+        return $this->showTemplate("./dialog.html",0,$paraData);
     }
     
     public function siteMain($type)
@@ -18,12 +22,12 @@ class GzeroTest extends GzeroBase
                 );
                 $paraData1 = array();
                 $paraData1[] = array(
-                    '<!-- Comment_Loop -->'=> 'Comment_Loop1<br/>'
+                    '<!-- Comment_Loop -->' => 'Comment_Loop1<br/>'
                 );
                 $paraData1[] = array(
-                    '<!-- Comment_Loop -->'=> 'Comment_Loop2<br/>'
+                    '<!-- Comment_Loop -->' => 'Comment_Loop2<br/>'
                 );
-                $main = $this->showTemplateLoop("./testMain.html",1,0,$paraData,$paraData1);
+                $main = $this->showTemplateLoop("./testMain.html", 1, 0, $paraData, $paraData1);
                 break;
             default:
                 break;

@@ -15,7 +15,7 @@ class GzeroBase
     
     public function gzeroSqlFetchArray($query)
     {
-        return $query->fetch();
+        return $query->fetchAll();
     }
     
     public function showTemplate($file, $sort,$paraData)

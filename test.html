@@ -1,11 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Playlist Updates</title>
 </head>
 <body>
-<!-- BEGIN_LOOP -->
-<!-- END_LOOP -->
+<div id="login-container" class="pre-auth">This application requires access to your YouTube account.
+    Please <a href="#" id="login-link">authorize</a> to continue.
+</div>
+<div id="buttons">
+    <button id="playlist-button" disabled onclick="createPlaylist()">Create a new Private Playlist</button>
+    <br>
+    <label>Current Playlist Id: <input id="playlist-id" value='' type="text"/></label>
+    <br>
+    <label>Video Id: <input id="video-id" value='GZG9G5txtaE' type="text"/></label><button onclick="addVideoToPlaylist()">Add to current playlist</button>
+</div>
+<h3>Playlist: <span id="playlist-title"></span></h3>
+<p id="playlist-description"></p>
+<div id="playlist-container">
+    <span id="status">No Videos</span>
+</div>
+<script src="./templates/js/jquery-1.8.3.js"></script>
+<script src="./templates/js/jquery-1.8.3.min.js"></script>
+<script src="./fullcalendar-3.2.0/lib/moment.min.js"></script>
+<script src="./fullcalendar-3.2.0/fullcalendar.js"></script>
+<script src="./fullcalendar-3.2.0/fullcalendar.min.js"></script>
+<script src='./fullcalendar-scheduler-1.5.1/scheduler.js'></script>
+<link href="fullcalendar-3.2.0/fullcalendar.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="fullcalendar-3.2.0/fullcalendar.print.css" media="print">
+<link rel="stylesheet" href="fullcalendar-3.2.0/fullcalendar.css" media="screen">
+<link href='./fullcalendar-scheduler-1.5.1/scheduler.css' rel='stylesheet' />
+<script src="./templates/js/vgo_ajax3.js"></script>
+<script src="./templates/js/gzero.js"></script>
+<script type='text/javascript' src='./fullcalendar-3.2.0/gcal.js'></script>
+<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 </body>
 </html>
